@@ -1561,6 +1561,10 @@ def db_monodb(httprequest=None):
     # if there is only one possible db, we take that one
     if len(dbs) == 1:
         return dbs[0]
+    
+    if openerp.tools.config.get('db_name'):
+        return openerp.tools.config.get('db_name')
+    
     return None
 
 def send_file(filepath_or_fp, mimetype=None, as_attachment=False, filename=None, mtime=None,
